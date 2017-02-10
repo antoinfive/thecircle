@@ -1,4 +1,5 @@
 import React from 'react'
+import LikeButton from './likeButton'
 
 export default (props) => { 
   return (
@@ -8,7 +9,7 @@ export default (props) => {
          <div className="card-image">
            <img src={props.img || "http://i.giphy.com/5scJh8meluWwU.gif"} />
              <span className="card-title">{props.user}</span>
-             <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">thumb_up</i></a>
+              <LikeButton />
            </div>
            <div className="card-content">
              <p>{props.message}</p>

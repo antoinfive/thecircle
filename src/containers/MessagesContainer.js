@@ -10,7 +10,14 @@ class MessagesContainer extends React.Component {
     super() 
   }
 
+  componentDidMount(){ 
+    this._selectFormInit() 
+  }
+  
 
+  _selectFormInit(){
+    $('select').material_select();
+  }
   render(){
     
     const cards = this.props.messages.map((data, index) => { 
