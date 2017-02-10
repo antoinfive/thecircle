@@ -13,14 +13,14 @@ class MessagesContainer extends React.Component {
 
   render(){
     
-    const cards = this.props.messages.map((data) => { 
-      return <MessageCard user={data.user} message={data.message} />
+    const cards = this.props.messages.map((data, index) => { 
+      return <MessageCard key={index} user={data.user} message={data.message} img={data.imageSrc}/>
     })
     
     return ( 
       <div>
         <div className="col s8"> {cards} </div> 
-        <MessageForm newMessage={this.props.newMessage}/>
+        <MessageForm newMessage={this.props.newMessageWithGiphy} mood="happy"/>
       </div>
     )   
   }  
@@ -35,7 +35,7 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    newMessage: messageActions.newMessage 
+    newMessageWithGiphy: messageActions.newMessageWithGiphy
   }, dispatch)
 }
 
