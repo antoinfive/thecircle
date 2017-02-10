@@ -2,6 +2,8 @@ import React from 'react'
 import NavBar from '../common/NavBar'
 import MessageCard from './MessageCard'
 import ContentWrapper from '../common/ContentWrapper'
+import MessagesContainer from '../containers/MessagesContainer'
+import MessageForm from '../components/MessageForm'
 
 export default class App extends React.Component {
   render() {
@@ -9,8 +11,7 @@ export default class App extends React.Component {
       <div>
         <NavBar />
         <ContentWrapper>
-          <MessageCard title="Rose Golden" message='the samurai'/>
-          <MessageCard title="Rose Golden" message='oh since I was young'/>
+          <MessagesContainer /> 
         </ContentWrapper>
       </div>
     )
