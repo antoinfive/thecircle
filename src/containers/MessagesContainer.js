@@ -21,7 +21,14 @@ class MessagesContainer extends React.Component {
   render(){
     
     const cards = this.props.messages.map((data, index) => { 
-      return <MessageCard key={index} user={data.user} message={data.message} img={data.imageSrc}/>
+      return <MessageCard 
+        key={index} 
+        id={data.id} 
+        user={data.user} 
+        message={data.message} 
+        img={data.imageSrc}
+        likes={data.likes}
+        />
     })
     
     return ( 

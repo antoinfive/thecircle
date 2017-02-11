@@ -20,7 +20,7 @@ export default class MessageForm extends React.Component {
 
  handleOnSubmit(event){
   event.preventDefault()
-  let payload = { user: 'testing', message: this.state.input, mood: this.state.mood } 
+  let payload = { user: 'testing', message: this.state.input, mood: this.state.mood, likes: 0 } 
   this.props.newMessage(payload) 
   this.setState({ input: ''}) 
  }
