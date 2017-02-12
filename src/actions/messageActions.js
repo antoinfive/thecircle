@@ -1,4 +1,5 @@
 import GiphyApiAdapter from '../adapter/giphyApiAdapter'
+import randomInteger from '../services/randomInteger'
 
 export function newMessageGiphySuccess(payload){ 
   return { type: 'NEW_MESSAGE', payload } 
@@ -10,7 +11,7 @@ export function updateMessage(id){
 
 export function newMessageWithGiphy(data){ 
   let adapter = new GiphyApiAdapter  
-  let index = randomInt(0, 24) 
+  let index = randomInteger(0, 24) 
   return dispatch => { 
     return adapter.fetchRandomByMood(data.mood)
       .then((response) =>{ 
@@ -21,10 +22,3 @@ export function newMessageWithGiphy(data){
   } 
 }
 
-function randomInt(min, max){
-  min = Math.ceil(min);
-  max = Math.floor(max);
-
-  return Math.floor(Math.random() * (max - min)) + min;
-
-}

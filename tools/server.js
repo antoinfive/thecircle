@@ -24,6 +24,14 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 io.on('connection', (socket) => {
   console.log('a user connected') 
+  socket.on('disconnect', () =>{
+    console.log('a user disconnected')
+  })
+
+  socket.on('chat message', (message) => {
+    console.log('MESSAGE!!!!', message)
+    io.emit('chat message', message)
+  })
 })
 
 app.get('*', function(req, res) {  

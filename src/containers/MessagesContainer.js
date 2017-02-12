@@ -5,6 +5,8 @@ import * as messageActions from '../actions/messageActions'
 import MessageCard from '../components/MessageCard'
 import MessageForm from '../components/MessageForm'
 
+const socket = io()
+
 class MessagesContainer extends React.Component {
   constructor(){
     super() 

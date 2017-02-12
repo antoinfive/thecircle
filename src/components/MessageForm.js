@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../styles/styles'
+import randomInteger from '../services/randomInteger'
 
 export default class MessageForm extends React.Component {
   constructor(){
@@ -16,12 +17,16 @@ export default class MessageForm extends React.Component {
 
  componentDidMount(){
    this.handleSelectChange()
+   socket.on('chat message', (message) => { 
+    this.props.newMessage(message) 
+   })
  }
 
  handleOnSubmit(event){
   event.preventDefault()
-  let payload = { user: 'testing', message: this.state.input, mood: this.state.mood, likes: 0 } 
-  this.props.newMessage(payload) 
+  let id = randomInteger(0, 10000)
+  let payload = { id: id, user: 'testing', message: this.state.input, mood: this.state.mood, likes: 0 } 
+  socket.emit('chat message', payload) 
   this.setState({ input: ''}) 
  }
 
