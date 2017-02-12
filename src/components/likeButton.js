@@ -8,10 +8,13 @@ export const LikeButton = (props) => {
   )
 
   function handleOnClick(id, action){ 
+    debugger 
     socket.emit('like update', id)
-    action(id) 
+    socket.on('like update', (id) =>{
+      audio.play()
+    }) 
+     action(id) 
     const audio = document.getElementById('audio')
-    audio.play()
   }
 }
 

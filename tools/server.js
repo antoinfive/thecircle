@@ -32,6 +32,11 @@ io.on('connection', (socket) => {
     console.log('MESSAGE!!!!', message)
     io.emit('chat message', message)
   })
+  
+  socket.on('like update', (id) => {
+    console.log(id)
+    io.emit('like update', id)
+  })
 })
 
 app.get('*', function(req, res) {  

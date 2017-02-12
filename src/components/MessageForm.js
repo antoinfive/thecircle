@@ -24,8 +24,8 @@ export default class MessageForm extends React.Component {
 
  handleOnSubmit(event){
   event.preventDefault()
-  let id = randomInteger(0, 10000)
-  let payload = { id: id, user: 'testing', message: this.state.input, mood: this.state.mood, likes: 0 } 
+  let id = randomInteger(0, 10000) 
+  let payload = {id: id, user: 'testing', message: this.state.input, mood: this.state.mood, likes: 0  } 
   socket.emit('chat message', payload) 
   this.setState({ input: ''}) 
  }
