@@ -23,7 +23,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));  
 
 io.on('connection', (socket) => {
+  io.emit('joined', 'bob') 
   console.log('a user connected') 
+
   socket.on('disconnect', () =>{
     console.log('a user disconnected')
   })

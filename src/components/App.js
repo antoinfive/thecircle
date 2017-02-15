@@ -6,6 +6,13 @@ import MessagesContainer from '../containers/MessagesContainer'
 import UserList from '../components/userList' 
 
 export default class App extends React.Component {
+
+  componentDidMount(){ 
+    socket.on('joined', (user) => {
+      alert(`user: ${user} connected`)
+    })   
+  }
+
   render() {
     return (
       <div>

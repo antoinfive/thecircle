@@ -15,7 +15,7 @@ export function newMessageWithGiphy(data){
   let index = randomInteger(0, 24) 
   return dispatch => { 
     return adapter.fetchRandomByMood(data.mood)
-      .then((response) =>{ 
+      .then((response) => { 
         let giphyUrl = response.data.data[index].images.fixed_height.url
         let payload = {id: data.id, user: data.user, message: data.message, imageSrc: giphyUrl, likes: data.likes} 
         dispatch(newMessageGiphySuccess(payload))
